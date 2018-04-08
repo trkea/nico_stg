@@ -107,12 +107,3 @@ function previewCenter ( game ){
     game._pageX = left;
     game._pageY = top;
 }
-
-
-// call when you need restarting
-function restart(core) {
- 
-core.onload = function() {
-    restart(this);
-}
-}
