@@ -63,7 +63,9 @@ function enemy1() {
         ran1 = Math.floor(Math.random()*800);
          yt.x = 15;
          yt.y = ran1;
-        if(nico.opacity > 0) game.score += 10;
+        if(nico.opacity > 0){
+            game.score += 10;
+        }
      }
      scoreLabel.text = "スコア:"+ game.score;
 }
@@ -80,9 +82,11 @@ function enemy2() {
      ran2 = Math.floor(Math.random()*800);
      yt1.moveBy(-5,40);
     if(yt1.x > game.width || yt1.y > game.height) {
-     yt1.x = ran2;
-     yt1.y = 15;
-    if(nico.opacity > 0) game.score += 10;
+        yt1.x = ran2;
+        yt1.y = 15;
+        if(nico.opacity > 0) {
+            game.score += 10;
+        }
     }
 }
 
