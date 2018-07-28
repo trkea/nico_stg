@@ -16,8 +16,6 @@ window.onload = function() {
 	game.preload("niconico.png","yt.png");
 	game.fps = 20;
 	game.onload = function() {
-
-   
 	   map = new Map(100,100);
 	   game.rootScene.backgroundColor = "#CCFFFF";
        createHero();
@@ -38,36 +36,36 @@ function createHero(){
 }
 
 function operate(){
-        nx = here.x;
-        ny = here.y;
-       if(game.input.up) ny -= 15;
-       if(game.input.down) ny += 15;
-       if(game.input.right) nx += 15;
-       if(game.input.left) nx -= 15;
-      if(!map.hitTest(nx,ny) && nx > -20 && nx < 730 && ny > 20 && ny < 730){ //画面端の衝突テスト
-         here.x = nx;
-         here.y = ny;
-         nico.moveTo(here.x,here.y);
+    nx = here.x;
+    ny = here.y;
+    if(game.input.up) ny -= 15;
+    if(game.input.down) ny += 15;
+    if(game.input.right) nx += 15;
+    if(game.input.left) nx -= 15;     
+    if(!map.hitTest(nx,ny) && nx > -20 && nx < 730 && ny > 20 && ny < 730) { //画面端の衝突テスト
+        here.x = nx;
+        here.y = ny;
+        nico.moveTo(here.x,here.y);
       }
-     if(this.intersect(yt) || this.intersect(yt1)){
-         nico.opacity = 0;
-         document.getElementById('button').innerHTML = "<input type = 'button' value = 'リトライ' onClick='location.reload()'>";
-         document.getElementById('game_over').innerHTML = "<h1>GAME OVER<h1>";
+     if(this.intersect(yt) || this.intersect(yt1)) {
+        nico.opacity = 0;
+        document.getElementById('button').innerHTML = "<input type = 'button' value = 'リトライ' onClick='location.reload()'>";
+        document.getElementById('game_over').innerHTML = "<h1>GAME OVER<h1>";
      }
 }
 
 
 function enemy1() { 
-     yt.moveBy(25,25);
-     if(yt.x > game.width || yt.y > game.height) {
+    yt.moveBy(25,25);
+    if(yt.x > game.width || yt.y > game.height) {
         ran1 = Math.floor(Math.random()*800);
-         yt.x = 15;
-         yt.y = ran1;
+        yt.x = 15;
+        yt.y = ran1;
         if(nico.opacity > 0){
             game.score += 10;
         }
-     }
-     scoreLabel.text = "スコア:"+ game.score;
+    }
+    scoreLabel.text = "スコア:"+ game.score;
 }
 
 function createEnemy1(){
@@ -79,8 +77,8 @@ function createEnemy1(){
     game.rootScene.addChild(yt);}
 
 function enemy2() { 
-     ran2 = Math.floor(Math.random()*800);
-     yt1.moveBy(-5,40);
+    ran2 = Math.floor(Math.random()*800);
+    yt1.moveBy(-5,40);
     if(yt1.x > game.width || yt1.y > game.height) {
         yt1.x = ran2;
         yt1.y = 15;
@@ -96,7 +94,7 @@ function createEnemy2(){
     yt1.x = 0;
     yt1.y = 0;
     yt1.addEventListener(enchant.Event.ENTER_FRAME,enemy2);
-     game.rootScene.addChild(yt1);
+        game.rootScene.addChild(yt1);
  }
 
 
@@ -104,9 +102,9 @@ function previewCenter ( game ){
     var left = ( window.innerWidth - ( game.width * game.scale )) /2;
     var top=( window.innerHeight - ( game.height * game.scale )) /2;
     $('#enchant-stage').css({
-      "position":"absolute",
-      "left":left+"px",
-      "top":top+"px",
+        "position":"absolute",
+        "left":left+"px",
+        "top":top+"px",
     });
     game._pageX = left;
     game._pageY = top;
